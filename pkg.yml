@@ -1,0 +1,10 @@
+license: "GPL-2.0" # the license for your init script in SPDX identifier format
+depends: # list of required packages. usually the package the init script is for plus the init system itself
+    - dbus
+    - dbus-dinit
+source: # list of files that make up your init script package. files vary by init system. See the next section for details
+    - elogind.sh # -> as /etc/elogind/system-sleep/python-validity.sh
+    - service # -> as /etc/dinit.d/python-validity
+allowedBuilders: # list of usernames that are allowed to trigger builds for this package
+    - beyondmagic     # put your username here
+backup: [] # list of files for pacman to back up. optional.
