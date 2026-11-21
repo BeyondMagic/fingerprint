@@ -1,5 +1,8 @@
 #!/usr/bin/env nu
+#
 # Subtree management helper for fingerprint packages (AURIS & Artix Linux).
+#
+# João V. Farias © BeyondMagic <beyondmagic@mail.ru> 2026
 
 const PACKAGES = [
     {
