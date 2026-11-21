@@ -150,8 +150,8 @@ def "main push" [
 # Split a package subtree into a standalone branch or exported git repository for submission.
 def "main split" [
     package: string          # Package directory name to split
-    --branch (-b): string    # Local branch name to create/update (default: split/<package>)
-    --dest (-d): string      # Optional directory path to export a standalone git repository
+    --branch: string    # Local branch name to create/update (default: split/<package>)
+    --dest: string      # Optional directory path to export a standalone git repository
 ] {
     let pkg = (find-package $package)
     let split_branch = if ($branch | is-empty) { $"split/($pkg.name)" } else { $branch }
