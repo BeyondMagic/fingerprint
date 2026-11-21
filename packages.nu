@@ -75,7 +75,7 @@ def ensure-remote [pkg: record] {
     }
 }
 
-def resolve-auris-targets [package?: string] {
+def resolve-auris-targets [package?: string]: nothing -> list<record> {
     if ($package | is-empty) {
         $PACKAGES | where target == "auris"
     } else {
@@ -88,12 +88,12 @@ def resolve-auris-targets [package?: string] {
 }
 
 # Display available subcommands.
-def main [] {
+def main []: nothing -> nothing {
     help main
 }
 
 # Show status, target, configured remote, and latest commit for each package subtree.
-def "main status" [] {
+def "main status" []: nothing -> nothing {
     let existing_remotes = (^git remote | lines)
     $PACKAGES | each {|pkg|
         let latest = (^git log -n 1 --format="%h %s" -- $pkg.name | str trim)
@@ -114,7 +114,7 @@ def "main status" [] {
 }
 
 # Ensure local git remotes for AURIS subtrees are configured in .git/config.
-def "main remotes" [] {
+def "main remotes" []: nothing -> nothing {
     for pkg in ($PACKAGES | where remote != null) {
         ensure-remote $pkg
     }
@@ -124,7 +124,7 @@ def "main remotes" [] {
 # Pull upstream changes from AURIS into a package subtree (or all AURIS subtrees).
 def "main pull" [
     package?: string # Optional package name; defaults to all AURIS packages
-] {
+]: nothing -> nothing {
     require-clean-tree
     let targets = (resolve-auris-targets $package)
     for pkg in $targets {
@@ -137,7 +137,7 @@ def "main pull" [
 # Push subtree commits back to AURIS (or all AURIS subtrees).
 def "main push" [
     package?: string # Optional package name; defaults to all AURIS packages
-] {
+]: nothing -> nothing {
     require-clean-tree
     let targets = (resolve-auris-targets $package)
     for pkg in $targets {
@@ -152,7 +152,7 @@ def "main split" [
     package: string          # Package directory name to split
     --branch: string    # Local branch name to create/update (default: split/<package>)
     --dest: string      # Optional directory path to export a standalone git repository
-] {
+]: nothing -> nothing {
     let pkg = (find-package $package)
     let split_branch = if ($branch | is-empty) { $"split/($pkg.name)" } else { $branch }
 
@@ -172,7 +172,7 @@ def "main split" [
 }
 
 # Clean makepkg build directories and package archives across all packages.
-def "main clean" [] {
+def "main clean" []: nothing -> nothing {
     for pkg in $PACKAGES {
         for sub in ["src", "pkg", "fprintd"] {
             let path = ($pkg.name | path join $sub)
