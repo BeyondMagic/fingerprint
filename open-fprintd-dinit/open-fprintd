@@ -1,0 +1,7 @@
+type = process
+command = /usr/bin/python /usr/lib/open-fprintd/open-fprintd
+logfile = /var/log/dinit/open-fprintd.log
+depends-on = dbus
+waits-for = dbus
+smooth-recovery = true
+before = login.target

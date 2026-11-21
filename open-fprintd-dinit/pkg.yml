@@ -1,0 +1,9 @@
+license: "GPL-2.0"
+depends:
+    - dbus
+    - dbus-dinit
+source:
+    - open-fprintd
+allowedBuilders:
+    - beyondmagic
+backup: []
