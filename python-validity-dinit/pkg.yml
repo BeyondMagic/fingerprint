@@ -1,0 +1,9 @@
+license: "GPL-2.0"
+depends:
+    - open-fprintd
+    - open-fprintd-dinit
+source:
+    - python-validity
+allowedBuilders:
+    - beyondmagic
+backup: []

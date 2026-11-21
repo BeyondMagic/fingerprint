@@ -1,0 +1,7 @@
+type = process
+command = /usr/bin/python /usr/lib/python-validity/dbus-service
+logfile = /var/log/dinit/python-validity.log
+depends-on = open-fprintd
+waits-for = open-fprintd
+smooth-recovery = true
+before = login.target
