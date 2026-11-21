@@ -1,18 +1,17 @@
 #!/usr/bin/env sh
 #
-# For dinit, script to restart python-validity and open-fprintd after resume via elogind.
+# For dinit, script to suspend and resume open-fprintd devices via elogind.
 #
 # João Farias © BeyondMagic <beyondmagic@mail.ru> 2023-2026
 
 case "$1" in
 
 	'pre')
-		exit 0
+		exec /usr/lib/open-fprintd/suspend.py
 	;;
 
 	'post')
-		dinitctl --system restart --force --no-wait open-fprintd
-		exec dinitctl --system restart --no-wait python-validity
+		exec /usr/lib/open-fprintd/resume.py
 	;;
 
 	*)
@@ -20,3 +19,4 @@ case "$1" in
 	;;
 
 esac
+
