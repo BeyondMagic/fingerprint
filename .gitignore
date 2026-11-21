@@ -1,1 +1,10 @@
 .vscode/
+
+# Makepkg build directories and artifacts
+src/
+pkg/
+fprintd-clients-git-elogind/fprintd/
+*.pkg.tar.zst
+*.pkg.tar.xz
+*.pkg.tar.gz
+*.log
