@@ -1,11 +1,6 @@
 # fingerprint
 
-Umbrella repository for `open-fprintd`, `python-validity`, and `fprintd` client packages targeting Artix Linux (`dinit` and `elogind`).
-
-Each package directory is integrated via **`git subtree`** with full commit history preserved so that:
-- Anyone cloning this repository on GitHub gets every file in a single `git clone`.
-- Packages hosted in AURIS can be synced bi-directionally with `git subtree pull` / `git subtree push`.
-- Pending packages can be extracted cleanly with `git subtree split` into standalone repositories when submitted to the Artix official repositories.
+Repository for `open-fprintd`, `python-validity`, and `fprintd` client packages targeting Artix Linux (`dinit` and `elogind`).
 
 ## Packages
 
@@ -18,8 +13,10 @@ Each package directory is integrated via **`git subtree`** with full commit hist
 | `fprintd-clients-git-elogind` | `PKGBUILD` + patches | Artix (pending) | `fprintd` clients-only build with `elogind` support |
 
 Root utility:
-- `reset-usbdevfs_reset.py`: Helper script to reset a USB device via the `USBDEVFS_RESET` ioctl (`/dev/bus/usb/<bus>/<device>`).
 
+- `reset-usbdevfs_reset.py`: Helper script to reset a USB device via the `USBDEVFS_RESET` ioctl (`/dev/bus/usb/<bus>/<device>`), *may be needed for some fingerprint readers for the first time in Linux*.
+
+<!--
 ## Workflow
 
 You can manage subtrees using the included [packages.nu](./packages.nu) Nushell script or raw `git subtree` commands.
@@ -71,3 +68,9 @@ Equivalent raw Git command:
 ```sh
 git subtree split --prefix=open-fprintd-elogind-dinit -b split/open-fprintd-elogind-dinit
 ```
+
+-->
+
+## License
+
+This project is licensed under [GPL-2.0](LICENSE).
