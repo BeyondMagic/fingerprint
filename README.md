@@ -6,8 +6,8 @@ Repository for `open-fprintd`, `python-validity`, and `fprintd` client packages 
 
 | Directory | Format | Target | Upstream / Notes |
 | --- | --- | --- | --- |
-| `open-fprintd-dinit` | `pkg.yml` + dinit service | AURIS | `ssh://git@auris.artixlinux.org:23/auris/open-fprintd-dinit.git` |
-| `python-validity-dinit` | `pkg.yml` + dinit service | AURIS | `ssh://git@auris.artixlinux.org:23/auris/python-validity-dinit.git` |
+| `open-fprintd-dinit` | `pkg.yml` + dinit service | [AURIS](https://auris.artixlinux.org/auris/open-fprintd-dinit) | `ssh://git@auris.artixlinux.org:23/auris/open-fprintd-dinit.git` |
+| `python-validity-dinit` | `pkg.yml` + dinit service | [AURIS](https://auris.artixlinux.org/auris/python-validity-dinit) | `ssh://git@auris.artixlinux.org:23/auris/python-validity-dinit.git` |
 | `open-fprintd-elogind-dinit` | `PKGBUILD` | Artix (pending) | `elogind` system-sleep hook for `open-fprintd` (`dinit`) |
 | `python-validity-elogind-dinit` | `PKGBUILD` | Artix (pending) | `elogind` system-sleep hook for `python-validity` (`dinit`) |
 | `fprintd-clients-git-elogind` | `PKGBUILD` + patches | Artix (pending) | `fprintd` clients-only build with `elogind` support |
